@@ -27,6 +27,8 @@ pipeline {
         stage('Helm Chart') {
             steps {
                 echo 'Helm Chart....'
+                bat 'helm package -d target/helm target/classes/helm/ndc.testcontainer'
+                bat "curl -u helm:helm http://localhost:8081/repository/helm-internal/ --upload-file ndc.testcontainer-${version}.tgz -v"
             }
         }
         stage('Deploy to k8s') {
