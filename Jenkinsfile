@@ -1,8 +1,7 @@
 def version = ''
+def app
 
 pipeline {
-
-    def app
     
     agent any    
 
