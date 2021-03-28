@@ -17,7 +17,9 @@ pipeline {
         }
         stage('Docker Image') {
             steps {
-                app = docker.build("hylmar/ndc.testcontainer")    
+                script {
+                    app = docker.build("hylmar/ndc.testcontainer")    
+                }
                 docker {            
                     app.push("${version}")            
                     app.push("latest")        
