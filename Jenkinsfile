@@ -1,6 +1,9 @@
 def version = ''
 
 pipeline {
+
+    def app
+    
     agent any    
 
     stages {
@@ -15,7 +18,11 @@ pipeline {
         }
         stage('Docker Image') {
             steps {
-                echo 'Docker Image..'
+                app = docker.build("hylmar/ndc.testcontainer")    
+                docker {            
+                    app.push("${version}")            
+                    app.push("latest")        
+                }     
             }
         }
         stage('Helm Chart') {
