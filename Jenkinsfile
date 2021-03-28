@@ -19,11 +19,11 @@ pipeline {
             steps {
                 script {
                     app = docker.build("hylmar/ndc.testcontainer")    
-                }
-                docker {            
-                    app.push("${version}")            
-                    app.push("latest")        
-                }     
+                    docker {            
+                        app.push("${version}")            
+                        app.push("latest")        
+                    } 
+                }                    
             }
         }
         stage('Helm Chart') {
