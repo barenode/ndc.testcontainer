@@ -1,7 +1,7 @@
+def version = ''
+
 pipeline {
-    agent any
-    
-    def version
+    agent any    
 
     stages {
         stage('Maven Build') {
