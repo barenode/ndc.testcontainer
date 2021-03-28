@@ -19,10 +19,8 @@ pipeline {
             steps {
                 script {
                     app = docker.build("hylmar/ndc.testcontainer")    
-                    docker {            
-                        app.push("${version}")            
-                        app.push("latest")        
-                    } 
+                    app.push("${version}")            
+                    app.push("latest")  
                 }                    
             }
         }
