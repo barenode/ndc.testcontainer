@@ -1,10 +1,16 @@
 pipeline {
     agent any
+    
+    def version
 
     stages {
         stage('Maven Build') {
             steps {
-               bat 'mvn -B -DskipTests clean package' 
+                bat 'mvn -B -DskipTests clean package' 
+                script {
+                    version = readMavenPom().getVersion()
+                }
+                echo("VERSION=${version}")
             }
         }
         stage('Docker Image') {
