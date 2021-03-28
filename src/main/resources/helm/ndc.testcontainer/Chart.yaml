@@ -1,5 +1,5 @@
 apiVersion: v2
 name: ndc.testcontainer
-description: NDC test container
+description: NDC test container 2
 type: application
 version: ${project.version}
