@@ -2,19 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Maven Build') {
             steps {
                bat 'mvn -B -DskipTests clean package' 
             }
         }
-        stage('Test') {
+        stage('Docker Image') {
             steps {
-                echo 'Testing..'
+                echo 'Docker Image..'
             }
         }
-        stage('Deploy') {
+        stage('Helm Chart') {
             steps {
-                echo 'Deploying....'
+                echo 'Helm Chart....'
+            }
+        }
+        stage('Deploy to k8s') {
+            steps {
+                echo 'Deploy to k8s....'
             }
         }
     }
