@@ -34,6 +34,7 @@ pipeline {
         stage('Deploy to k8s') {
             steps {
                 echo 'Deploy to k8s....'
+                bat 'helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer'
             }
         }
     }

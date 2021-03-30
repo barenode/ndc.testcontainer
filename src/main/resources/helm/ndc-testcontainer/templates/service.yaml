@@ -9,7 +9,7 @@ spec:
   ports:
   - port: {{ .Values.service.port }} 
     protocol: TCP
-    targetPort: {{ .Values.service.port }} 
+    targetPort: 8080 
   selector:
     {{- include "ndc-testcontainer.selectorLabels" . | nindent 4 }}
 
