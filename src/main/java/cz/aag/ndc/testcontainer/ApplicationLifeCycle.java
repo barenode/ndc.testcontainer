@@ -21,6 +21,8 @@ public class ApplicationLifeCycle {
         System.out.println(" |_|   |_|  \\___/ \\_/ |_|\\__,_|\\___|_|             ");
         System.out.println("                                                   ");                                                
         System.out.println("Provider is starting with profile " + ProfileManager.getActiveProfile());   
+        System.out.println("Provider is starting with profile " + ProfileManager.getActiveProfile());   
+        System.out.println("Provider is starting with profile " + ProfileManager.getActiveProfile());   
         System.out.println("                                                   ");                
     }
     
