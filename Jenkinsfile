@@ -37,7 +37,8 @@ pipeline {
                 echo 'Deploy to OKD....'                
                 sleep(5)            
                 bat 'helm repo update' 
-                bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
+                sleep(5)         
+                // bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
                 bat 'helm search repo --devel'     
                 catchError {         
                     bat 'helm delete ndc-testcontainer'                
