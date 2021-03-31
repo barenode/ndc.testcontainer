@@ -37,11 +37,8 @@ pipeline {
                 echo 'Deploy to OKD....'
                 bat 'helm repo update'              
                 bat 'helm search repo --devel'     
-                script {
-                    catchError {         
-                        bat 'helm delete ndc-testcontainer'                
-                    }
-                    return true;
+                catchError {         
+                    bat 'helm delete ndc-testcontainer'                
                 }
                 bat 'helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer'
             }
