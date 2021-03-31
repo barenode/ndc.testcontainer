@@ -43,7 +43,7 @@ pipeline {
                 // catchError {         
                 //     bat 'helm delete ndc-testcontainer'                
                 // }
-                bat 'helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer --version ${version}'
+                bat "helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer --version ${version}"
             }
         }
     }
