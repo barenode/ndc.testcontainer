@@ -34,8 +34,13 @@ pipeline {
         }
         stage('OKD Deployment') {
             steps {
-                echo 'Deploy to OKD....'
-                bat 'helm repo update'              
+                echo 'Deploy to OKD....'                
+                timeout(10) {
+                    waitUntil {
+                        bat 'helm repo update' 
+                        bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
+                    }
+                }             
                 bat 'helm search repo --devel'     
                 catchError {         
                     bat 'helm delete ndc-testcontainer'                
