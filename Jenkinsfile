@@ -37,10 +37,11 @@ pipeline {
                 echo 'Deploy to OKD....'                
                 timeout(10) {
                     waitUntil {
-                        bat 'helm repo update' 
-                        bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
+                        return false
                     }
                 }             
+                bat 'helm repo update' 
+                bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
                 bat 'helm search repo --devel'     
                 catchError {         
                     bat 'helm delete ndc-testcontainer'                
