@@ -40,9 +40,9 @@ pipeline {
                 // sleep(5)         
                 // bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
                 bat 'helm search repo --devel'     
-                // catchError {         
-                //     bat 'helm delete ndc-testcontainer'                
-                // }
+                catchError {         
+                    bat 'helm delete ndc-testcontainer'                
+                }
                 bat "helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer --version ${version}"
             }
         }
