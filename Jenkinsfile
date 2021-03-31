@@ -41,6 +41,7 @@ pipeline {
                     catchError {         
                         bat 'helm delete ndc-testcontainer'                
                     }
+                    return true;
                 }
                 bat 'helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer'
             }
