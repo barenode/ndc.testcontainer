@@ -32,7 +32,7 @@ pipeline {
                 bat "curl -u helm:helm http://localhost:8081/repository/helm-internal/ --upload-file target/helm/ndc-testcontainer-${version}.tgz -v"
             }
         }
-        stage('OKD Deployment) {
+        stage('OKD Deployment') {
             steps {
                 echo 'Deploy to OKD....'
                 bat 'helm repo update'              
