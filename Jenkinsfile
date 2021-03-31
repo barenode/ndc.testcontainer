@@ -35,7 +35,7 @@ pipeline {
         stage('OKD Deployment') {
             steps {
                 echo 'Deploy to OKD....'                
-                sleep(time: 10, unit: SECONDS)            
+                sleep(5)            
                 bat 'helm repo update' 
                 bat 'helm show chart helm-internal/ndc-testcontainer  --devel --version ${version}'
                 bat 'helm search repo --devel'     
