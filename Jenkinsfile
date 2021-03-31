@@ -36,7 +36,7 @@ pipeline {
             steps {
                 echo 'Deploy to OKD....'
                 bat 'helm repo update'              
-                bat 'helm repo search --devel'                 
+                bat 'helm search repo --devel'                 
                 bat 'helm upgrade --install --devel ndc-testcontainer helm-internal/ndc-testcontainer'
             }
         }
