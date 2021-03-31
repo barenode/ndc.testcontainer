@@ -37,7 +37,9 @@ pipeline {
                 echo 'Deploy to OKD....'                
                 timeout(10) {
                     waitUntil {
-                        return false
+                        script {
+                            return false;
+                        }                        
                     }
                 }             
                 bat 'helm repo update' 
